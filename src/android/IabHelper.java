@@ -583,6 +583,9 @@ public class IabHelper {
 
             return inv;
         }
+        catch (NullPointerException e) {
+            throw new IabException(IABHELPER_UNKNOWN_ERROR, "NPE while refreshing inventory.", e);
+        }
         catch (RemoteException e) {
             throw new IabException(IABHELPER_REMOTE_EXCEPTION, "Remote exception while refreshing inventory.", e);
         }
